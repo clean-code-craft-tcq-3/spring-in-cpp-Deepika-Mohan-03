@@ -1,36 +1,44 @@
 #include "stats.h"
+#include <math.h>
 
-Stats Statistics::ComputeStatistics(const std::vector<float>& R) {
+#define INT_NULL ((int)0)
 
-    Stats obj;
-    obj.min = obj.max = R[0];
-    obj.average = 0;
-    int Size = R.size();
+Stats Statistics::ComputeStatistics(const std::vector<float>&g ) {
+    //Implement statistics here
+    Stats tempstats;
+    float Max,Min,avg = 0;
+    int Maxsize = g.size();
     
-    if(Size != 0)
+    if(Maxsize != INT_NULL)
     {
-    for(auto x : R)
+    Max = Min = g[0];
+    for(auto i= g.begin();i != g.end(); i++)
     {
-        if(*x < obj.min)
+        if(Max < *i)
         {
-           obj.min = *x;
+            Max = *i;
         }
-        if(*x > obj.max)
+        if(Min > *i)
         {
-           obj.max = *x;
+            Min = *i;
         }
-        obj.average = obj.average + *x;
+        avg = avg + *i;
     }
+    
+    avg = avg/Maxsize;
+    tempstats.average = avg;
+    tempstats.min = Min;
+    tempstats.max = Max;
+   
     }
     else
     {
-        obj.min = NAN;
-        obj.max = NAN;
-        obj.average = NAN;
+    tempstats.average = NAN;
+    tempstats.min = NAN;
+    tempstats.max = NAN;
     }
-    obj.average = obj.average/Size ;
     
-    return obj;
+    return tempstats;
 }
 
 void StatsAlerter::checkAndAlert(const std::vector<float>&InputValues)
