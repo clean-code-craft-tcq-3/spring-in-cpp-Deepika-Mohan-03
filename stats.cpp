@@ -1,6 +1,6 @@
 #include "stats.h"
 
-Stats Statistics::ComputeStatistics(const std::vector<float>& R) {
+Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
 
     Stats obj;
     obj.min = obj.max = R[0];
