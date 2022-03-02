@@ -32,3 +32,18 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& R) {
     
     return obj;
 }
+
+void StatsAlerter::checkAndAlert(const std::vector<float>&InputValues)
+{
+    for(auto i = InputValues.begin();i != InputValues.end();i++)
+    {
+        if(*i > Max_value)
+        {
+            for(unsigned int j = 0;j < Alert.size(); j++)
+            {
+                Alert[j]->alertsystem();
+            }
+            break;
+        }
+    }
+}
