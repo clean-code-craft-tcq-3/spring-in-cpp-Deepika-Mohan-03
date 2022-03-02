@@ -1,11 +1,13 @@
 #include <vector>
-#include <math.h>
 
 class Stats
 {
-   public:
-    float min, max, average;
+public:
+float average;
+float min;
+float max;
 };
+
 class IAlerter{
 public:
     virtual void alertsystem() = 0;
@@ -49,7 +51,6 @@ class StatsAlerter:public IAlerter
     void checkAndAlert(const std::vector<float>& );
 };
 
-
 namespace Statistics {
-    Stats ComputeStatistics(const std::vector<float>& R);
+    Stats ComputeStatistics(const std::vector<float>&g );
 }
