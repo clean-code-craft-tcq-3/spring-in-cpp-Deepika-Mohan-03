@@ -7,6 +7,8 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& R) {
     obj.average = 0;
     int Size = R.size();
     
+    if(Size != 0)
+    {
     for(auto x : R)
     {
         if(*x < obj.min)
@@ -18,6 +20,13 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& R) {
            obj.max = *x;
         }
         obj.average = obj.average + *x;
+    }
+    }
+    else
+    {
+        obj.min = NAN;
+        obj.max = NAN;
+        obj.average = NAN;
     }
     obj.average = obj.average/Size ;
     
