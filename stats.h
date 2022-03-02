@@ -9,5 +9,5 @@ public:
 };
 
 namespace Statistics {
-    Stats ComputeStatistics(const std::vector<float>& R);
+    Stats ComputeStatistics(const std::vector<float>&R);
 }
