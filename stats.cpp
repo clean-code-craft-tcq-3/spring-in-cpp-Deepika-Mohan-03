@@ -1,23 +1,25 @@
 #include "stats.h"
 
 Stats Statistics::ComputeStatistics(const std::vector<float>& R) {
-    //Implement statistics here
-    /*
-    float minimum = *min_element(R.begin() , R.end())
-    float min = R[0] , max = R[0], avg;
-    for(float x : R)
+
+    Stats obj;
+    obj.min = obj.max = R[0];
+    obj.average = 0;
+    int Size = R.size();
+    
+    for(auto x : R)
     {
-        if(x < min)
+        if(*x < obj.min)
         {
-           min = x;
+           obj.min = *x;
         }
-    }
-    for(float x : R)
-    {
-        if(x > max)
+        if(*x > obj.max)
         {
-           max = x;
+           obj.max = *x;
         }
+        obj.average = obj.average + *x;
     }
-    */
+    obj.average = obj.average/Size ;
+    
+    return obj;
 }
