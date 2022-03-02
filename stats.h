@@ -28,7 +28,7 @@ class StatsAlerter:public EmailAlert,public LEDGlow
 {
      public:
      float thersholdvalue;
-     void checkAndAlert(std::vector<float>&Readings);
+     void checkAndAlert(std::vector<float>&);
      StatsAlerter(float T_V, std::vector<IAlerter*>&Alert)
      {
          thersholdvalue = T_V;
