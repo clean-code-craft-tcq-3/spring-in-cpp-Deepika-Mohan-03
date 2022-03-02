@@ -1,57 +1,34 @@
 #include "stats.h"
-#include <math.h>
 
-#define INT_NULL ((int)0)
+Stats Statistics::ComputeStatistics(const std::vector<float>& R) {
 
-Stats Statistics::ComputeStatistics(const std::vector<float>&g ) {
-    //Implement statistics here
-    Stats tempstats;
-    float Max,Min,avg = 0;
-    int Maxsize = g.size();
+    Stats obj;
+    obj.min = obj.max = R[0];
+    obj.average = 0;
+    int Size = R.size();
     
-    if(Maxsize != INT_NULL)
+    if(Size != 0)
     {
-    Max = Min = g[0];
-    for(auto i= g.begin();i != g.end(); i++)
+    for(auto x : R)
     {
-        if(Max < *i)
+        if(*x < obj.min)
         {
-            Max = *i;
+           obj.min = *x;
         }
-        if(Min > *i)
+        if(*x > obj.max)
         {
-            Min = *i;
+           obj.max = *x;
         }
-        avg = avg + *i;
+        obj.average = obj.average + *x;
     }
-    
-    avg = avg/Maxsize;
-    tempstats.average = avg;
-    tempstats.min = Min;
-    tempstats.max = Max;
-   
     }
     else
     {
-    tempstats.average = NAN;
-    tempstats.min = NAN;
-    tempstats.max = NAN;
+        obj.min = NAN;
+        obj.max = NAN;
+        obj.average = NAN;
     }
+    obj.average = obj.average/Size ;
     
-    return tempstats;
-}
-
-void StatsAlerter::checkAndAlert(const std::vector<float>&InputValues)
-{
-    for(auto i = InputValues.begin();i != InputValues.end();i++)
-    {
-        if(*i > Max_value)
-        {
-            for(unsigned int j = 0;j < Alert.size(); j++)
-            {
-                Alert[j]->alertsystem();
-            }
-            break;
-        }
-    }
+    return obj;
 }
