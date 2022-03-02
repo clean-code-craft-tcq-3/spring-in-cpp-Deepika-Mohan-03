@@ -32,3 +32,18 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     
     return obj;
 }
+
+void StatsAlerter::checkAndAlert(std::vector<float>&Readings)
+{
+    for(auto x : Readings)
+    {
+        if(x > thersholdvalue)
+        {
+            EmailAlert e_obj;
+            LEDGlow l_obj;
+            e_obj.emailsent = 1;
+            l_obj.LEDGlow = 1;
+        }
+    }
+}
+    
