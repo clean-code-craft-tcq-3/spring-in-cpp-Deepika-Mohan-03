@@ -38,11 +38,11 @@ class LEDAlert:public IAlerter
 class StatsAlerter:public IAlerter
 {
    public:
-    float Max_value;
+    float thersholdvalue;
     std::vector<IAlerter*> Alert;
     StatsAlerter(const float &M,std::vector<IAlerter*> &A)
     {
-    Max_value = M;
+    thersholdvalue = M;
     Alert = A;
     }
     void alertsystem()
