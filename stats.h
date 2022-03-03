@@ -1,52 +1,56 @@
-#include <vector> 
+#include <vector>
 
 class Stats
 {
-   public:
-    float min;
-    float max;
-    float average;
+public:
+float average;
+float min;
+float max;
 };
 
-class IAlerter
-{
-   public:
-   virtual void alert() = 0;
+class IAlerter{
+public:
+    virtual void alertsystem() = 0;
 };
 
 class EmailAlert:public IAlerter
 {
-    public:
-    bool emailsent = 0;
-    void alert()
+   public:
+    bool emailSent = 0;
+    void alertsystem()
     {
+        //Send email
         emailSent = 1;
     }
 };
 
-class LEDGlow:public IAlerter
+class LEDAlert:public IAlerter
 {
-     public:
-     bool LEDGlow = 0;
-     void alert()
-     {
-         LEDGlow = 1;
-     }
+    public:
+     bool ledGlows = 0;
+     void alertsystem()
+    {
+        //Turn On LED
+        ledGlows = 1;
+    }
 };
 
 class StatsAlerter:public IAlerter
 {
-     public:
-     float thersholdvalue;
-     std::vector<IAlerter*> Alert;
-     void checkAndAlert(const std::vector<float>& );
-     StatsAlerter(const float &T_V,std::vector<IAlerter*> &A)
-     {
-         thersholdvalue = T_V;
-         Alert A;
-     }
+   public:
+    float Max_value;
+    std::vector<IAlerter*> Alert;
+    StatsAlerter(const float &M,std::vector<IAlerter*> &A)
+    {
+    Max_value = M;
+    Alert = A;
+    }
+    void alertsystem()
+    {
+    }
+    void checkAndAlert(const std::vector<float>& );
 };
-     
+
 namespace Statistics {
-    Stats ComputeStatistics(const std::vector<float>&R);
+    Stats ComputeStatistics(const std::vector<float>&g );
 }
