@@ -39,8 +39,6 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
 void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
 {
     float max = Readings[0];
-    //EmailAlert e_obj;
-    //LEDAlert l_obj;
     for(auto x = Readings.begin(); x != Readings.end(); x++)
     {
 	if(*x > max)
@@ -50,11 +48,9 @@ void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
     }
     if(max > thersholdvalue)
     {
-	    //e_obj.alert();
-	    //l_obj.alert();
         for(int y = 0; y < Alert.size(); y++)
         {
-            Alert[y].alert();
+            Alert[y]->alert();
         }
     }
 }
