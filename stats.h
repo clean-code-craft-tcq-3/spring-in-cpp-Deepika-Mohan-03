@@ -48,7 +48,7 @@ class StatsAlerter:public IAlerter
     void alertsystem()
     {
     }
-    void checkAndAlert(std::vector<float>& );
+    void checkAndAlert(const std::vector<float>& );
 };
 
 namespace Statistics {
