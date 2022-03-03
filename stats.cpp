@@ -40,9 +40,9 @@ void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
 {
     for(auto x = Readings.begin(); x != Readings.end(); x++)
     {
-        if(*x > Max_value)
+        if(*x > thersholdvalue)
         {
-            for(unsigned int y = 0; y < Alert.size(); y++)
+            for(int y = 0; y < Alert.size(); y++)
             {
                 Alert[y]->alertsystem();
             }
