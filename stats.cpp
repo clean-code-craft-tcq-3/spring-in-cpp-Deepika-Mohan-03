@@ -49,8 +49,8 @@ void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
     if(max > thersholdvalue)
     {
 	    StatsAlerter s;
-	    s.EmailAlert::alert();
-	    s.LEDAlert::alert();
+	    EmailAlert::alert();
+	    LEDAlert::alert();
         //for(int y = 0; y < Alert.size(); y++)
         //{
            // Alert[y]->alert();
