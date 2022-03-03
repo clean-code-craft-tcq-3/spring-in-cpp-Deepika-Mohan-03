@@ -10,16 +10,15 @@ float max;
 
 class IAlerter{
 public:
-    virtual void alertsystem() = 0;
+    virtual void alert() = 0;
 };
 
 class EmailAlert:public IAlerter
 {
    public:
     bool emailSent = 0;
-    void alertsystem()
+    void alert()
     {
-        //Send email
         emailSent = 1;
     }
 };
@@ -28,9 +27,8 @@ class LEDAlert:public IAlerter
 {
     public:
      bool ledGlows = 0;
-     void alertsystem()
+     void alert()
     {
-        //Turn On LED
         ledGlows = 1;
     }
 };
@@ -45,7 +43,7 @@ class StatsAlerter:public IAlerter
     thersholdvalue = M;
     Alert = A;
     }
-    void alertsystem()
+    void alert()
     {
     }
     void checkAndAlert(const std::vector<float>& );
