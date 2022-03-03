@@ -6,7 +6,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     //Implement statistics here
     Stats obj;
     obj.min = obj.max = R[0];
-    obj.average = 0;
+    //obj.average = 0;
     int Size = R.size();
     
     if(Size != 0)
