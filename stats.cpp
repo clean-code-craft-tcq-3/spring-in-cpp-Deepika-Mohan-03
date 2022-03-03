@@ -12,6 +12,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     
     if(Size != 0)
     {
+        obj.min = R[0];
     Max = Min = R[0];
     for(auto x = R.begin(); x != R.end(); x++)
     {
