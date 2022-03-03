@@ -43,9 +43,6 @@ class StatsAlerter:public IAlerter
     thersholdvalue = M;
     Alert = A;
     }
-    void alert()
-    {
-    }
     void checkAndAlert(const std::vector<float>& );
 };
 
