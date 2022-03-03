@@ -12,7 +12,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     {
         obj.min = obj.max = R[0];
         obj.average = 0;
-        for(auto x = R.begin(); x != R.end(); x++)
+        for(auto x : R)
         {
           if(*x < obj.min)
           {
