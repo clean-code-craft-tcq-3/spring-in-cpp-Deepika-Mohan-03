@@ -46,7 +46,6 @@ void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
             {
                 Alert[y]->alertsystem();
             }
-            break;
         }
     }
 }
