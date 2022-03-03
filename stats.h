@@ -33,7 +33,7 @@ class LEDAlert:public IAlerter
     }
 };
 
-class StatsAlerter:public EmailAlert, public LEDAlert
+class StatsAlerter:public IAlerter
 {
    public:
     float thersholdvalue;
@@ -41,8 +41,8 @@ class StatsAlerter:public EmailAlert, public LEDAlert
     
     StatsAlerter(const float &M,std::vector<IAlerter*> &A)
     {
-    thersholdvalue = M;
-    Alert = A;
+        thersholdvalue = M;
+        Alert = A;
     }
     
     void alert()
