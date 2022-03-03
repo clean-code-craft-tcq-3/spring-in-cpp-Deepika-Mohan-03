@@ -11,7 +11,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     
     if(Size != 0)
     {
-    for(auto x : R)
+    for(auto x= R.begin();x != R.end(); x++)
     {
         if(*x < obj.min)
         {
