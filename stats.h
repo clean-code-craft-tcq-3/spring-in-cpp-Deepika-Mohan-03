@@ -17,6 +17,9 @@ class EmailAlert:public IAlerter
     bool emailSent = 0;
     void alert()
     {
+    }
+    void ealert()
+    {
         emailSent = 1;
     }
 };
@@ -24,8 +27,11 @@ class EmailAlert:public IAlerter
 class LEDAlert:public IAlerter
 {
     public:
-     bool ledGlows = 0;
-     void alert()
+    bool ledGlows = 0;
+    void alert()
+    {
+    }
+     void Lalert()
     {
         ledGlows = 1;
     }
