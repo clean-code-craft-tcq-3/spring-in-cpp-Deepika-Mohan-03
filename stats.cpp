@@ -2,16 +2,16 @@
 #include <math.h>
 
 
-Stats Statistics::ComputeStatistics(const std::vector<float>&g ) {
+Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     //Implement statistics here
     Stats tempstats;
     float Max,Min,avg = 0;
-    int Maxsize = g.size();
+    int Maxsize = R.size();
     
     if(Maxsize != 0)
     {
-    Max = Min = g[0];
-    for(auto i= g.begin();i != g.end(); i++)
+    Max = Min = R[0];
+    for(auto i= R.begin();i != R.end(); i++)
     {
         if(Max < *i)
         {
