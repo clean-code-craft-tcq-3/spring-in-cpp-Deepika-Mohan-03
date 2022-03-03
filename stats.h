@@ -38,11 +38,17 @@ class StatsAlerter:public IAlerter
    public:
     float thersholdvalue;
     std::vector<IAlerter*> Alert;
+    
     StatsAlerter(const float &M,std::vector<IAlerter*> &A)
     {
     thersholdvalue = M;
     Alert = A;
     }
+    
+    void alert()
+    {
+    }
+    
     void checkAndAlert(const std::vector<float>& );
 };
 
