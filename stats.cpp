@@ -4,35 +4,40 @@
 
 Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     //Implement statistics here
-    Stats obj;
-    obj.min = obj.max = R[0];
-    //obj.average = 0;
-    int Size = R.size();
+    Stats tempstats;
+    float Max,Min,avg = 0;
+    int Maxsize = R.size();
     
-    if(Size != 0)
+    if(Maxsize != 0)
     {
-       for(auto x= R.begin();x != R.end(); x++)
-       {
-           if(*x < obj.min)
-           {
-               obj.min = *x;
-           }
-           if(*x > obj.max)
-           {
-               obj.max = *x;
-           }
-           obj.average = obj.average + *x;
-       }
-       obj.average = obj.average/Size ;
+    Max = Min = R[0];
+    for(auto i= R.begin();i != R.end(); i++)
+    {
+        if(Max < *i)
+        {
+            Max = *i;
+        }
+        if(Min > *i)
+        {
+            Min = *i;
+        }
+        avg = avg + *i;
+    }
+    
+    avg = avg/Maxsize;
+    tempstats.average = avg;
+    tempstats.min = Min;
+    tempstats.max = Max;
+   
     }
     else
     {
-        obj.min = NAN;
-        obj.max = NAN;
-        obj.average = NAN;
+    tempstats.average = NAN;
+    tempstats.min = NAN;
+    tempstats.max = NAN;
     }
-
-    return obj;
+    
+    return tempstats;
 }
 
 void StatsAlerter::checkAndAlert(const std::vector<float>&InputValues)
