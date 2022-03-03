@@ -11,18 +11,19 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     
     if(Size != 0)
     {
-    for(auto x= R.begin();x != R.end(); x++)
-    {
-        if(*x < obj.min)
-        {
-           obj.min = *x;
-        }
-        if(*x > obj.max)
-        {
-           obj.max = *x;
-        }
-        obj.average = obj.average + *x;
-    }
+       for(auto x= R.begin();x != R.end(); x++)
+       {
+           if(*x < obj.min)
+           {
+               obj.min = *x;
+           }
+           if(*x > obj.max)
+           {
+               obj.max = *x;
+           }
+           obj.average = obj.average + *x;
+       }
+       obj.average = obj.average/Size ;
     }
     else
     {
@@ -30,8 +31,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
         obj.max = NAN;
         obj.average = NAN;
     }
-    obj.average = obj.average/Size ;
-    
+
     return obj;
 }
 
