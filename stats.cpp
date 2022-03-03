@@ -51,8 +51,8 @@ void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
 	    //StatsAlerter s;
 	    EmailAlert eobj;
             LEDAlert lobj;
-	    eobj.alert();
-	    lobj.alert();
+	    eobj->alert();
+	    lobj->alert();
         //for(int y = 0; y < Alert.size(); y++)
         //{
            // Alert[y]->alert();
