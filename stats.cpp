@@ -36,7 +36,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     return obj;
 }
 
-void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
+void StatsAlerter::checkAndAlert(std::vector<float>&Readings)
 {
     for(auto x = Readings.begin(); x != Readings.end(); x++)
     {
