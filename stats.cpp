@@ -54,7 +54,7 @@ void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
 	    //l_obj.alert();
         for(int y = 0; y < Alert.size(); y++)
         {
-            Alert[y]->alert();
+            Alert[y].alert();
         }
     }
 }
