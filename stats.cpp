@@ -11,17 +11,17 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     if(Size != 0)
     {
     Max = Min = R[0];
-    for(auto x = g.begin(); x != g.end(); x++)
+    for(auto i = g.begin(); i != g.end(); i++)
     {
-        if(Max < *x)
+        if(Max < *i)
         {
-            Max = *x;
+            Max = *i;
         }
-        if(Min > *x)
+        if(Min > *i)
         {
-            Min = *x;
+            Min = *i;
         }
-        avg = avg + *x;
+        avg = avg + *i;
     }
     
     avg = avg/Size;
