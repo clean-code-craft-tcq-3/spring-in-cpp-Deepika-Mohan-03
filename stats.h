@@ -31,7 +31,7 @@ class LEDAlert:public IAlerter
     }
 };
 
-class StatsAlerter:public IAlerter
+class StatsAlerter:public EmailAlert, public LEDAlert
 {
    public:
     float thersholdvalue;
