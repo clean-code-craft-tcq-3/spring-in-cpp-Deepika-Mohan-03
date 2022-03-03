@@ -3,9 +3,7 @@
 class Stats
 {
 public:
-float average;
-float min;
-float max;
+  float average, min, max;
 };
 
 class IAlerter{
