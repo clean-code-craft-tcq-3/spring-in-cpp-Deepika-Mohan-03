@@ -52,5 +52,5 @@ class StatsAlerter:public IAlerter
 };
 
 namespace Statistics {
-    Stats ComputeStatistics(const std::vector<float>&g );
+    Stats ComputeStatistics(const std::vector<float>&R);
 }
