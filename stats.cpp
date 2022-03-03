@@ -38,15 +38,20 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
 
 void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
 {
+	float max = Readings[0];
     for(auto x = Readings.begin(); x != Readings.end(); x++)
     {
-        if(*x > thersholdvalue)
+	  if(*x > max)
+          {
+            max = *x;
+          }
+    }
+        if(max > thersholdvalue)
         {
             for(int y = 0; y < Alert.size(); y++)
             {
                 Alert[y]->alert();
             }
         }
-    }
 }
     
