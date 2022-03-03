@@ -1,7 +1,11 @@
+#include <vector> 
+
 class Stats
 {
    public:
-    float min, max, average;
+    float min;
+    float max;
+    float average;
 };
 
 class IAlerter
@@ -13,25 +17,33 @@ class IAlerter
 class EmailAlert:public IAlerter
 {
     public:
-    void alert();
     bool emailsent = 0;
+    void alert()
+    {
+        emailSent = 1;
+    }
 };
 
 class LEDGlow:public IAlerter
 {
      public:
-     void alert();
      bool LEDGlow = 0;
+     void alert()
+     {
+         LEDGlow = 1;
+     }
 };
 
-class StatsAlerter:public EmailAlert,public LEDGlow
+class StatsAlerter:public IAlerter
 {
      public:
      float thersholdvalue;
-     void checkAndAlert(std::vector<float>&);
-     StatsAlerter(float T_V, std::vector<IAlerter*>&Alert)
+     std::vector<IAlerter*> Alert;
+     void checkAndAlert(const std::vector<float>& );
+     StatsAlerter(const float &T_V,std::vector<IAlerter*> &A)
      {
          thersholdvalue = T_V;
+         Alert A;
      }
 };
      
