@@ -1,7 +1,6 @@
 #include "stats.h"
 #include <math.h>
 
-#define INT_NULL ((int)0)
 
 Stats Statistics::ComputeStatistics(const std::vector<float>&g ) {
     //Implement statistics here
@@ -9,7 +8,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&g ) {
     float Max,Min,avg = 0;
     int Maxsize = g.size();
     
-    if(Maxsize != INT_NULL)
+    if(Maxsize != 0)
     {
     Max = Min = g[0];
     for(auto i= g.begin();i != g.end(); i++)
