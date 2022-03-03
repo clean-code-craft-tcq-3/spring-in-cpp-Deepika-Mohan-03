@@ -12,7 +12,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     {
         obj.min = obj.max = R[0];
         obj.average = 0;
-        for(auto x : R)
+        for(auto x = R.begin(); x != R.end(); x++)
         {
           if(*x < obj.min)
           {
@@ -36,15 +36,15 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     return obj;
 }
 
-void StatsAlerter::checkAndAlert(const std::vector<float>&InputValues)
+void StatsAlerter::checkAndAlert(const std::vector<float>&Readings)
 {
-    for(auto i = InputValues.begin();i != InputValues.end();i++)
+    for(auto x = Readings.begin(); x != Readings.end(); x++)
     {
-        if(*i > Max_value)
+        if(*x > Max_value)
         {
-            for(unsigned int j = 0;j < Alert.size(); j++)
+            for(unsigned int y = 0; y < Alert.size(); y++)
             {
-                Alert[j]->alertsystem();
+                Alert[y]->alertsystem();
             }
             break;
         }
