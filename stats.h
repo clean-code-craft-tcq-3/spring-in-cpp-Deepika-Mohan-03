@@ -39,9 +39,9 @@ class StatsAlerter:public IAlerter
     float thersholdvalue;
     std::vector<IAlerter*> Alert;
     
-    StatsAlerter(const float &M,std::vector<IAlerter*> &A)
+    StatsAlerter(const float &MT, std::vector<IAlerter*> &A)
     {
-        thersholdvalue = M;
+        thersholdvalue = MT;
         Alert = A;
     }
     
