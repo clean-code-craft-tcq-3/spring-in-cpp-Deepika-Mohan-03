@@ -4,32 +4,28 @@
 
 Stats Statistics::ComputeStatistics(const std::vector<float>&R) {
     //Implement statistics here
+	
     Stats obj;
-    
-    //float Max,Min,avg = 0;
-    
     int Size = R.size();
     
     if(Size != 0)
     {
         obj.min = obj.max = R[0];
         obj.average = 0;
-        //Max = Min = R[0];
-       for(auto x = R.begin(); x != R.end(); x++)
-       {
-        if(*x < obj.min)
+        for(auto x = R.begin(); x != R.end(); x++)
         {
-           obj.min = *x;
+          if(*x < obj.min)
+          {
+            obj.min = *x;
+          }
+          if(*x > obj.max)
+          {
+            obj.max = *x;
+          }
+          obj.average = obj.average + *x;
         }
-        if(*x > obj.max)
-        {
-           obj.max = *x;
-        }
-        obj.average = obj.average + *x;
-       }
-	   obj.average = obj.average/Size ;
-    }
-    
+	obj.average = obj.average/Size ;
+    } 
     else
     {
       obj.average = NAN;
